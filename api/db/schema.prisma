@@ -5,8 +5,9 @@
 // https://www.prisma.io/docs/orm/prisma-migrate
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 generator client {
@@ -14,11 +15,73 @@ generator client {
   binaryTargets = "native"
 }
 
-// Define your own datamodels here and run `yarn redwood prisma migrate dev`
-// to create migrations for them and apply to your dev DB.
-// TODO: Please remove the following example:
-model UserExample {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+enum EventType {
+  locals
+  storeRegional
+  onlineRegional
+  offlineRegional
+  storeUltimateCup
+  onlineUltimateCup
+  offlineUltimateCup
+  nationals
+  worlds
+}
+
+enum PlacementType {
+  first
+  second
+  top4
+  top8
+  top16
+  top32
+  top64
+  top128
+  top256
+  top512
+}
+
+enum ResultsType {
+  WW
+  LL
+  WLW
+  WLL
+  LWW
+  LWL
+  TIE
+}
+
+model User {
+  id                  String    @id @default(cuid())
+  username            String    @unique
+  hashedPassword      String
+  salt                String
+  resetToken          String?
+  resetTokenExpiresAt DateTime?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+  events              Event[]
+  rounds              Round[]
+}
+
+model Event {
+  id        String        @id @default(cuid()) // Unique identifier for each event
+  eventDate DateTime
+  eventDeck String
+  eventName String
+  eventType EventType
+  placement PlacementType
+  userId    String
+  user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  rounds    Round[] // An event can have many rounds
+}
+
+model Round {
+  id           String      @id @default(cuid()) // Unique identifier for each round
+  roundNumber  Int
+  opponentDeck String
+  result       ResultsType
+  eventId      String
+  userId       String
+  event        Event       @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  user         User        @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
