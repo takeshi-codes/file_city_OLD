@@ -6,9 +6,11 @@ const LandingPage = () => {
     <>
       <Metadata title="Landing" description="Landing page" />
 
-      <div className="card m-auto w-96 shadow-xl">
+      <div className="card m-auto max-w-prose shadow-xl">
         <div className="card-body items-center text-left">
-          <h2 className="typewriter card-title">WELCOME TO FILE_CITY</h2>
+          <h2 className="typewriter card-title max-w-prose text-xl">
+            WELCOME TO FILE_CITY
+          </h2>
           <p>
             FILE_CITY is designed to help players of the Digimon Card Game
             easily track and manage their match results. With features to log
