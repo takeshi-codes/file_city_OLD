@@ -52,7 +52,7 @@ const LoginPage = () => {
         <div className="rw-scaffold rw-login-container">
           <div className="rw-segment">
             <header className="rw-segment-header bg-primary text-primary-content">
-              <h2 className='text-lg font-bold'>Login</h2>
+              <h2 className="text-lg font-bold">Login</h2>
             </header>
 
             <div className="rw-segment-main">
