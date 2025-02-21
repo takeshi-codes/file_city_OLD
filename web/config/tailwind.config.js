@@ -2,14 +2,13 @@
 module.exports = {
   content: ['src/**/*.{js,jsx,ts,tsx}'],
   daisyui: {
-    themes: ["bumblebee"],
+    themes: ['bumblebee'],
   },
   theme: {
     fontFamily: {
-      'sans': ['Ubuntu'],
-     },
-    extend: {}
+      sans: ['Ubuntu'],
+    },
+    extend: {},
   },
-  plugins: [require('daisyui'),],
+  plugins: [require('daisyui')],
 }
-

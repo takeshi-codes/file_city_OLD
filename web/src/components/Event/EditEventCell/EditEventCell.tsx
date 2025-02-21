@@ -46,7 +46,11 @@ const UPDATE_EVENT_MUTATION: TypedDocumentNode<
   }
 `
 
-export const Loading = () => <div><span className="loading loading-dots loading-lg"></span></div>
+export const Loading = () => (
+  <div>
+    <span className="loading loading-dots loading-lg"></span>
+  </div>
+)
 
 export const Failure = ({ error }: CellFailureProps) => (
   <div className="rw-cell-error">{error?.message}</div>

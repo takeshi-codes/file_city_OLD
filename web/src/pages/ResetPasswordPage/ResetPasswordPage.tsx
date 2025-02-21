@@ -66,9 +66,7 @@ const ResetPasswordPage = ({ resetToken }: { resetToken: string }) => {
         <div className="rw-scaffold rw-login-container">
           <div className="rw-segment">
             <header className="rw-segment-header bg-primary text-primary-content">
-              <h2 className="text-xl">
-                Reset Password
-              </h2>
+              <h2 className="text-xl">Reset Password</h2>
             </header>
 
             <div className="rw-segment-main">
@@ -101,10 +99,7 @@ const ResetPasswordPage = ({ resetToken }: { resetToken: string }) => {
                   </div>
 
                   <div className="rw-button-group">
-                    <Submit
-                      className="btn btn-primary"
-                      disabled={!enabled}
-                    >
+                    <Submit className="btn btn-primary" disabled={!enabled}>
                       Submit
                     </Submit>
                   </div>

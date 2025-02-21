@@ -23,7 +23,11 @@ export const QUERY: TypedDocumentNode<FindEventById, FindEventByIdVariables> =
     }
   `
 
-export const Loading = () => <div><span className="loading loading-dots loading-lg"></span></div>
+export const Loading = () => (
+  <div>
+    <span className="loading loading-dots loading-lg"></span>
+  </div>
+)
 
 export const Empty = () => <div>Event not found</div>
 

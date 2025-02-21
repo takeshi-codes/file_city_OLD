@@ -4,7 +4,6 @@ import { Metadata } from '@redwoodjs/web'
 
 import EventsCell from 'src/components/Event/EventsCell'
 
-
 const DashboardPage = () => {
   return (
     <>

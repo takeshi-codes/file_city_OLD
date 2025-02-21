@@ -103,9 +103,7 @@ const SignupPage = () => {
                   <FieldError name="password" className="rw-field-error" />
 
                   <div className="rw-button-group">
-                    <Submit className="btn btn-primary">
-                      Sign Up
-                    </Submit>
+                    <Submit className="btn btn-primary">Sign Up</Submit>
                   </div>
                 </Form>
               </div>
